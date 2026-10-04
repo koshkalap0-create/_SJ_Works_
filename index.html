@@ -1,0 +1,3211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SJ Works | Soumya Jewellery Works</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* =====================================================
+   ROOT
+===================================================== */
+
+:root {
+    --gold:#c99a28;
+    --gold-light:#e7c45d;
+    --gold-dark:#9b7013;
+    --yellow:#f4d96b;
+
+    --black:#171717;
+    --white:#ffffff;
+
+    --cream:#fffdf7;
+    --soft:#f8f4e8;
+
+    --text:#282828;
+    --muted:#777;
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html {
+    scroll-behavior:smooth;
+}
+
+body {
+    font-family:'Montserrat',sans-serif;
+    background:#fff;
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+a {
+    text-decoration:none;
+    color:inherit;
+}
+
+img {
+    max-width:100%;
+    display:block;
+}
+
+
+/* =====================================================
+   PAGE LOADER
+===================================================== */
+
+.page-loader {
+    position:fixed;
+    inset:0;
+    background:#fffdf7;
+    z-index:100000;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
+}
+
+.page-loader.hide {
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.loader-content {
+    text-align:center;
+}
+
+.loader-logo {
+    width:75px;
+    height:75px;
+
+    margin:auto;
+
+    border:1px solid var(--gold);
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:32px;
+
+    color:var(--gold-dark);
+
+    animation:loaderPulse 1.6s ease-in-out infinite;
+}
+
+.loader-name {
+    margin-top:18px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:30px;
+
+    letter-spacing:3px;
+}
+
+.loader-subtitle {
+    margin-top:6px;
+
+    font-size:8px;
+
+    letter-spacing:3px;
+
+    color:#777;
+}
+
+.loader-line {
+    width:0;
+    height:1px;
+
+    background:var(--gold);
+
+    margin:20px auto 0;
+
+    animation:loaderLine 1.5s ease forwards;
+}
+
+@keyframes loaderPulse {
+
+    0%,100% {
+        transform:scale(1);
+        box-shadow:0 0 0 rgba(201,154,40,0);
+    }
+
+    50% {
+        transform:scale(1.05);
+        box-shadow:0 0 30px rgba(201,154,40,.15);
+    }
+}
+
+@keyframes loaderLine {
+
+    to {
+        width:100px;
+    }
+}
+
+
+/* =====================================================
+   GOLD TEXT
+===================================================== */
+
+.gold-text {
+
+    background:
+        linear-gradient(
+            90deg,
+            #9b7013,
+            #e7c45d,
+            #fff0a8,
+            #c99a28,
+            #9b7013
+        );
+
+    background-size:300% auto;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    animation:goldTextMove 6s linear infinite;
+}
+
+@keyframes goldTextMove {
+
+    to {
+        background-position:300% center;
+    }
+}
+
+
+/* =====================================================
+   GOLD PARTICLES
+===================================================== */
+
+.gold-particles {
+
+    position:fixed;
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:9999;
+
+    overflow:hidden;
+}
+
+.gold-particle {
+
+    position:absolute;
+    bottom:-20px;
+
+    width:4px;
+    height:4px;
+
+    border-radius:50%;
+
+    background:#e7c45d;
+
+    box-shadow:
+        0 0 5px #e7c45d,
+        0 0 12px rgba(231,196,93,.8),
+        0 0 20px rgba(201,154,40,.5);
+
+    opacity:0;
+
+    animation:
+        goldFloat linear infinite,
+        goldTwinkle ease-in-out infinite;
+}
+
+.gold-particle.small {
+    width:2px;
+    height:2px;
+}
+
+.gold-particle.medium {
+    width:4px;
+    height:4px;
+}
+
+.gold-particle.large {
+    width:6px;
+    height:6px;
+}
+
+@keyframes goldFloat {
+
+    0% {
+        transform:translate3d(0,110vh,0) rotate(0deg);
+        opacity:0;
+    }
+
+    10% {
+        opacity:.6;
+    }
+
+    50% {
+        transform:translate3d(30px,50vh,0) rotate(180deg);
+        opacity:1;
+    }
+
+    90% {
+        opacity:.45;
+    }
+
+    100% {
+        transform:translate3d(-40px,-10vh,0) rotate(360deg);
+        opacity:0;
+    }
+}
+
+@keyframes goldTwinkle {
+
+    0%,100% {
+        filter:brightness(.7);
+    }
+
+    50% {
+        filter:brightness(1.8);
+    }
+}
+
+
+/* =====================================================
+   SOFT MOVING GOLD LIGHT
+===================================================== */
+
+.gold-light {
+
+    position:fixed;
+
+    width:500px;
+    height:500px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:9998;
+
+    filter:blur(110px);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(231,196,93,.28),
+            rgba(201,154,40,.12),
+            transparent 70%
+        );
+
+    animation:
+        lightMove 18s ease-in-out infinite;
+}
+
+.gold-light-one {
+    top:-220px;
+    left:-180px;
+}
+
+.gold-light-two {
+    right:-220px;
+    bottom:-180px;
+
+    animation-delay:-8s;
+    animation-duration:23s;
+}
+
+@keyframes lightMove {
+
+    0%,100% {
+        transform:translate(0,0) scale(1);
+        opacity:.45;
+    }
+
+    50% {
+        transform:translate(100px,80px) scale(1.25);
+        opacity:.7;
+    }
+}
+
+
+/* =====================================================
+   CURSOR GOLD GLOW
+===================================================== */
+
+.cursor-glow {
+
+    position:fixed;
+
+    width:220px;
+    height:220px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:9996;
+
+    transform:translate(-50%,-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(231,196,93,.12),
+            rgba(201,154,40,.04),
+            transparent 70%
+        );
+
+    opacity:0;
+
+    transition:opacity .3s ease;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    height:82px;
+
+    padding:0 7%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    background:rgba(255,255,255,.94);
+
+    backdrop-filter:blur(14px);
+
+    border-bottom:
+        1px solid
+        rgba(201,154,40,.16);
+
+    z-index:1000;
+
+    transition:
+        height .4s ease,
+        box-shadow .4s ease,
+        background .4s ease;
+}
+
+.navbar.scrolled {
+
+    height:66px;
+
+    background:rgba(255,255,255,.97);
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.06);
+}
+
+
+/* LOGO */
+
+.logo-area {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+}
+
+.logo-circle {
+
+    width:48px;
+    height:48px;
+
+    border:1px solid var(--gold);
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:24px;
+
+    color:var(--gold-dark);
+
+    transition:.4s;
+}
+
+.navbar.scrolled .logo-circle {
+
+    width:40px;
+    height:40px;
+
+    font-size:20px;
+}
+
+.logo-text h3 {
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:23px;
+
+    letter-spacing:2px;
+
+    transition:.4s;
+}
+
+.navbar.scrolled .logo-text h3 {
+    font-size:20px;
+}
+
+.logo-text span {
+
+    font-size:8px;
+
+    letter-spacing:3px;
+
+    color:#777;
+}
+
+
+/* NAV LINKS */
+
+.nav-links {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:32px;
+}
+
+.nav-links a {
+
+    font-size:11px;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+
+    position:relative;
+
+    transition:.3s;
+}
+
+.nav-links a:not(.nav-btn)::after {
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-7px;
+
+    width:0;
+    height:1px;
+
+    background:var(--gold);
+
+    transition:.3s;
+}
+
+.nav-links a:not(.nav-btn):hover::after {
+    width:100%;
+}
+
+.nav-links a:hover {
+    color:var(--gold-dark);
+}
+
+.nav-btn {
+
+    padding:11px 20px;
+
+    border:1px solid var(--gold);
+
+    color:var(--gold-dark);
+}
+
+.nav-btn:hover {
+
+    background:var(--gold);
+
+    color:#fff !important;
+}
+
+.menu {
+
+    display:none;
+
+    font-size:25px;
+
+    cursor:pointer;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+
+    min-height:100vh;
+
+    padding:150px 8% 80px;
+
+    display:grid;
+
+    grid-template-columns:
+        1.05fr .95fr;
+
+    align-items:center;
+
+    gap:60px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(231,196,93,.18),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #fff,
+            #fffdf5
+        );
+}
+
+.hero::before {
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    border:
+        1px solid
+        rgba(201,154,40,.12);
+
+    border-radius:50%;
+
+    right:-150px;
+    top:100px;
+}
+
+.hero-content {
+
+    position:relative;
+
+    z-index:2;
+}
+
+.hero-small {
+
+    font-size:13px;
+
+    letter-spacing:7px;
+
+    color:var(--gold-dark);
+
+    margin-bottom:25px;
+
+    opacity:0;
+
+    transform:translateY(25px);
+
+    animation:
+        heroUp .9s .3s ease forwards;
+}
+
+.hero h1 {
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:
+        clamp(55px,7vw,100px);
+
+    line-height:.85;
+
+    font-weight:500;
+
+    letter-spacing:-2px;
+
+    opacity:0;
+
+    transform:translateY(45px);
+
+    animation:
+        heroUp 1s .45s ease forwards;
+}
+
+.hero h2 {
+
+    margin-top:22px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:35px;
+
+    font-weight:400;
+
+    opacity:0;
+
+    transform:translateY(25px);
+
+    animation:
+        heroUp .9s .7s ease forwards;
+}
+
+.hero-description {
+
+    max-width:550px;
+
+    margin-top:25px;
+
+    color:#666;
+
+    line-height:1.9;
+
+    font-size:14px;
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    animation:
+        heroUp .9s .85s ease forwards;
+}
+
+.hero-buttons {
+
+    margin-top:35px;
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    animation:
+        heroUp .9s 1s ease forwards;
+}
+
+@keyframes heroUp {
+
+    to {
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* BUTTONS */
+
+.btn {
+
+    padding:15px 28px;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        background .35s ease;
+}
+
+.btn-gold {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-dark),
+            var(--gold-light)
+        );
+
+    color:#fff;
+}
+
+.btn-gold:hover {
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(201,154,40,.25);
+}
+
+.btn-outline {
+
+    border:1px solid var(--gold);
+
+    color:var(--gold-dark);
+}
+
+.btn-outline:hover {
+
+    background:var(--gold);
+
+    color:white;
+
+    transform:translateY(-4px);
+}
+
+
+/* HERO IMAGE */
+
+.hero-media {
+
+    min-height:620px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    position:relative;
+
+    opacity:0;
+
+    transform:
+        translateY(40px)
+        scale(.96);
+
+    animation:
+        heroImage 1.3s .5s ease forwards;
+}
+
+@keyframes heroImage {
+
+    to {
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+.hero-photo {
+
+    width:520px;
+    height:520px;
+
+    max-width:90%;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    background:#f5f0df;
+
+    border:
+        1px solid
+        rgba(201,154,40,.35);
+
+    box-shadow:
+        0 0 0 10px
+        rgba(201,154,40,.03),
+        0 0 60px
+        rgba(201,154,40,.12);
+
+    animation:
+        heroFloat 6s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+
+    0%,100% {
+        transform:translateY(0);
+    }
+
+    50% {
+        transform:translateY(-10px);
+    }
+}
+
+.hero-photo img {
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:
+        transform 1.2s ease;
+}
+
+.hero-photo:hover img {
+    transform:scale(1.05);
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+section {
+
+    padding:110px 8%;
+
+    position:relative;
+}
+
+.section-heading {
+
+    text-align:center;
+
+    margin-bottom:60px;
+}
+
+.eyebrow {
+
+    color:var(--gold-dark);
+
+    font-size:11px;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    margin-bottom:15px;
+}
+
+.section-heading h2 {
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:58px;
+
+    font-weight:500;
+}
+
+.section-heading p {
+
+    max-width:600px;
+
+    margin:15px auto 0;
+
+    color:#777;
+
+    line-height:1.8;
+
+    font-size:13px;
+}
+
+
+/* =====================================================
+   REVEAL
+===================================================== */
+
+.reveal {
+
+    opacity:0;
+
+    transform:translateY(45px);
+
+    transition:
+        opacity .9s ease,
+        transform .9s cubic-bezier(.2,.7,.2,1);
+}
+
+.reveal.active {
+
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+
+/* =====================================================
+   ANIMATED GOLD LINE
+===================================================== */
+
+.gold-line {
+
+    width:0;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold-dark),
+            var(--gold-light)
+        );
+
+    margin:25px 0;
+
+    transition:
+        width 1s ease .25s;
+}
+
+.reveal.active .gold-line {
+    width:80px;
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about {
+    background:#fff;
+}
+
+.about-grid {
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,.9fr)
+        minmax(0,1.1fr);
+
+    gap:60px;
+
+    align-items:center;
+}
+
+.about-image {
+
+    width:100%;
+
+    max-width:620px;
+
+    height:400px;
+
+    margin:auto;
+
+    overflow:hidden;
+
+    background:#f5f1e5;
+
+    border:
+        1px solid
+        rgba(201,154,40,.25);
+}
+
+.about-image img {
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    transition:
+        transform 1.2s ease;
+}
+
+.about-image:hover img {
+    transform:scale(1.035);
+}
+
+.about-text h3 {
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:42px;
+
+    font-weight:500;
+}
+
+.about-text p {
+
+    color:#666;
+
+    line-height:2;
+
+    font-size:14px;
+
+    margin-bottom:18px;
+}
+
+
+/* =====================================================
+   SERVICES
+===================================================== */
+
+.services {
+    background:var(--cream);
+}
+
+.service-grid {
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:25px;
+}
+
+.service-card {
+
+    background:#fff;
+
+    padding:45px 35px;
+
+    border:
+        1px solid
+        rgba(201,154,40,.18);
+
+    position:relative;
+
+    overflow:hidden;
+
+    opacity:0;
+
+    transform:
+        translateY(45px)
+        scale(.97);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease,
+        box-shadow .4s ease;
+}
+
+.service-card.active {
+
+    opacity:1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+.service-card::before {
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:0;
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold-dark),
+            var(--gold-light)
+        );
+
+    transition:.5s;
+}
+
+.service-card:hover::before {
+    width:100%;
+}
+
+.service-card:hover {
+
+    transform:
+        translateY(-8px)
+        scale(1.01);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.07);
+}
+
+.service-number {
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:45px;
+
+    color:
+        rgba(201,154,40,.35);
+}
+
+.service-card h3 {
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:29px;
+
+    margin:15px 0;
+}
+
+.service-card p {
+
+    color:#777;
+
+    line-height:1.8;
+
+    font-size:13px;
+}
+
+
+/* =====================================================
+   GALLERY
+===================================================== */
+
+.gallery {
+    background:#fff;
+}
+
+.gallery-grid {
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:22px;
+}
+
+.gallery-item {
+
+    aspect-ratio:4 / 5;
+
+    background:#f5f1e5;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border:
+        1.5px solid
+        #c9a43a;
+
+    opacity:0;
+
+    transform:
+        translateY(40px)
+        scale(.96);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.gallery-item.active {
+
+    opacity:1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+.gallery-item img {
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    transition:
+        transform 1s cubic-bezier(.2,.7,.2,1);
+}
+
+.gallery-item:hover img {
+    transform:scale(1.06);
+}
+
+
+/* =====================================================
+   GALLERY GOLD SHIMMER
+===================================================== */
+
+.gallery-item::after {
+
+    content:"";
+
+    position:absolute;
+
+    top:-20%;
+    left:-80%;
+
+    width:45%;
+    height:140%;
+
+    transform:rotate(20deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.5),
+            rgba(231,196,93,.25),
+            transparent
+        );
+
+    pointer-events:none;
+
+    transition:none;
+}
+
+.gallery-item:hover::after {
+
+    animation:
+        galleryShimmer 1s ease forwards;
+}
+
+@keyframes galleryShimmer {
+
+    from {
+        left:-80%;
+    }
+
+    to {
+        left:140%;
+    }
+}
+
+
+/* =====================================================
+   PROCESS
+===================================================== */
+
+.process {
+    background:var(--soft);
+}
+
+.process-grid {
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:20px;
+
+    position:relative;
+}
+
+.process-grid::before {
+
+    content:"";
+
+    position:absolute;
+
+    top:67px;
+
+    left:12%;
+
+    right:12%;
+
+    height:1px;
+
+    background:#d9c48a;
+
+    transform:scaleX(0);
+
+    transform-origin:left;
+
+    transition:
+        transform 1.5s ease .3s;
+}
+
+.process-grid.active-line::before {
+    transform:scaleX(1);
+}
+
+.process-card {
+
+    text-align:center;
+
+    padding:30px 20px;
+
+    position:relative;
+
+    z-index:2;
+
+    opacity:0;
+
+    transform:translateY(35px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.process-card.active {
+
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+.process-icon {
+
+    width:75px;
+    height:75px;
+
+    margin:auto;
+
+    background:var(--soft);
+
+    border:
+        1px solid
+        var(--gold);
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    color:var(--gold-dark);
+
+    transition:.4s;
+}
+
+.process-card:hover .process-icon {
+
+    background:var(--gold);
+
+    color:#fff;
+
+    transform:
+        rotate(8deg)
+        scale(1.08);
+
+    box-shadow:
+        0 0 25px
+        rgba(201,154,40,.3);
+}
+
+.process-card h3 {
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:25px;
+
+    margin:20px 0 10px;
+}
+
+.process-card p {
+
+    color:#777;
+
+    font-size:12px;
+
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   WHY
+===================================================== */
+
+.why {
+    background:#fff;
+}
+
+.why-grid {
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+}
+
+.why-card {
+
+    text-align:center;
+
+    padding:40px 25px;
+
+    opacity:0;
+
+    transform:translateY(35px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.why-card.active {
+
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+.why-card:hover {
+    transform:translateY(-6px);
+}
+
+.symbol {
+
+    font-size:32px;
+
+    color:var(--gold);
+
+    margin-bottom:20px;
+
+    text-shadow:
+        0 0 12px
+        rgba(201,154,40,.35);
+}
+
+.why-card h3 {
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:27px;
+
+    margin-bottom:12px;
+}
+
+.why-card p {
+
+    color:#777;
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+
+/* =====================================================
+   QUOTE
+===================================================== */
+
+.quote-section {
+
+    padding:120px 10%;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,.92),
+            rgba(255,255,255,.92)
+        ),
+        radial-gradient(
+            circle,
+            #e8cc72,
+            transparent 50%
+        );
+
+    overflow:hidden;
+}
+
+.quote-mark {
+
+    font-size:80px;
+
+    color:var(--gold);
+
+    line-height:.7;
+
+    animation:
+        quoteFloat 4s ease-in-out infinite;
+}
+
+@keyframes quoteFloat {
+
+    0%,100% {
+        transform:translateY(0);
+    }
+
+    50% {
+        transform:translateY(-8px);
+    }
+}
+
+.quote {
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:46px;
+
+    max-width:900px;
+
+    margin:auto;
+
+    line-height:1.3;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact {
+    background:#f5f0e9;
+    padding-top:90px;
+    padding-bottom:100px;
+}
+
+.contact .section-heading {
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.contact .eyebrow {
+    color:var(--gold-dark);
+    letter-spacing:6px;
+    font-size:12px;
+    text-transform:uppercase;
+}
+
+.contact .section-heading h2 {
+    font-size:90px;
+    font-weight:500;
+    line-height:0.95;
+    letter-spacing:-2px;
+    margin:0;
+}
+
+.contact-grid {
+    display:block;
+    width:100%;
+}
+
+.contact-info {
+    max-width:1380px;
+    width:100%;
+    margin:0 auto;
+    text-align:center;
+}
+
+.contact-info h2 {
+    font-family:'Cormorant Garamond',serif;
+    font-size:108px;
+    line-height:0.92;
+    font-weight:500;
+    letter-spacing:-2px;
+    color:#2f2f2f;
+    margin:0 auto 16px;
+    display:block;
+}
+
+.contact-info .gold-line {
+    width:120px;
+    height:1.5px;
+    background:linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+    margin:0 auto 28px;
+}
+
+.contact-info p {
+    color:#666;
+    line-height:1.9;
+    font-size:18px;
+    margin:0 auto 26px;
+    max-width:1210px;
+    text-align:center;
+}
+
+.contact-item {
+    display:flex;
+    align-items:flex-start;
+    gap:18px;
+    margin:0 auto 24px;
+    max-width:900px;
+    text-align:left;
+    justify-content:flex-start;
+}
+
+.contact-icon {
+    color:var(--gold-dark);
+    font-size:18px;
+    width:18px;
+    margin-top:4px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+}
+
+.contact-icon span {
+    display:inline-block;
+    transform:translateY(-1px);
+}
+
+.contact-item h4 {
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:8px;
+    font-weight:600;
+    color:#2f2f2f;
+}
+
+.contact-item p {
+    margin:0;
+    color:#2f2f2f;
+    font-size:18px;
+    line-height:1.5;
+}
+
+.instagram-link {
+    color:var(--gold-dark);
+    font-weight:600;
+    transition:color .25s ease;
+}
+
+.instagram-link:hover {
+    color:var(--gold);
+    text-decoration:underline;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    background:#15130e;
+
+    color:#fff;
+
+    padding:65px 8% 25px;
+}
+
+.footer-top {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:30px;
+
+    padding-bottom:45px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.1);
+}
+
+.footer-brand h2 {
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:40px;
+}
+
+.footer-brand p {
+
+    color:#999;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    margin-top:8px;
+}
+
+.footer-links {
+
+    display:flex;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+}
+
+.footer-links a {
+
+    color:#aaa;
+
+    font-size:11px;
+
+    letter-spacing:1px;
+
+    transition:.3s;
+}
+
+.footer-links a:hover {
+    color:var(--gold-light);
+}
+
+.footer-bottom {
+
+    padding-top:25px;
+
+    text-align:center;
+
+    color:#777;
+
+    font-size:10px;
+
+    letter-spacing:1px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:900px) {
+
+    .nav-links {
+
+        position:absolute;
+
+        top:82px;
+        left:0;
+
+        width:100%;
+
+        display:none;
+
+        flex-direction:column;
+
+        background:#fff;
+
+        padding:30px;
+
+        border-bottom:1px solid #eee;
+    }
+
+    .nav-links.active {
+        display:flex;
+    }
+
+    .menu {
+        display:block;
+    }
+
+    .hero {
+
+        grid-template-columns:1fr;
+
+        padding-top:130px;
+    }
+
+    .hero-media {
+        min-height:480px;
+    }
+
+    .about-grid,
+    .contact-grid {
+        grid-template-columns:1fr;
+    }
+
+    .service-grid,
+    .gallery-grid,
+    .why-grid {
+        grid-template-columns:1fr 1fr;
+    }
+
+    .process-grid {
+        grid-template-columns:1fr 1fr;
+    }
+
+    .process-grid::before {
+        display:none;
+    }
+}
+
+
+@media(max-width:600px) {
+
+    .gold-light {
+        width:320px;
+        height:320px;
+    }
+
+    .cursor-glow {
+        display:none;
+    }
+
+    section {
+        padding:80px 6%;
+    }
+
+    .hero {
+        padding-left:6%;
+        padding-right:6%;
+    }
+
+    .hero h1 {
+        font-size:62px;
+    }
+
+    .hero h2 {
+        font-size:28px;
+    }
+
+    .hero-media {
+        min-height:390px;
+    }
+
+    .hero-photo {
+        width:320px;
+        height:320px;
+    }
+
+    .section-heading h2 {
+        font-size:45px;
+    }
+
+    .about-image {
+        height:300px;
+    }
+
+    .service-grid,
+    .gallery-grid,
+    .why-grid,
+    .process-grid {
+        grid-template-columns:1fr;
+    }
+
+    .quote {
+        font-size:35px;
+    }
+
+    .footer-top {
+        flex-direction:column;
+    }
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media(prefers-reduced-motion:reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        transition-duration:.01ms !important;
+
+        scroll-behavior:auto !important;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     LOADER
+===================================================== -->
+
+<div class="page-loader" id="pageLoader">
+
+    <div class="loader-content">
+
+        <div class="loader-logo">
+            SJ
+        </div>
+
+        <div class="loader-name">
+            SJ WORKS
+        </div>
+
+        <div class="loader-subtitle">
+            GOLD & SILVER MANUFACTURER
+        </div>
+
+        <div class="loader-line"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     GOLD DECORATIVE ANIMATION
+===================================================== -->
+
+<div class="gold-particles">
+
+    <span class="gold-particle small"
+          style="left:4%;animation-duration:13s;animation-delay:-2s;"></span>
+
+    <span class="gold-particle medium"
+          style="left:11%;animation-duration:17s;animation-delay:-8s;"></span>
+
+    <span class="gold-particle small"
+          style="left:18%;animation-duration:12s;animation-delay:-4s;"></span>
+
+    <span class="gold-particle large"
+          style="left:26%;animation-duration:20s;animation-delay:-12s;"></span>
+
+    <span class="gold-particle small"
+          style="left:33%;animation-duration:15s;animation-delay:-6s;"></span>
+
+    <span class="gold-particle medium"
+          style="left:40%;animation-duration:18s;animation-delay:-10s;"></span>
+
+    <span class="gold-particle small"
+          style="left:47%;animation-duration:14s;animation-delay:-3s;"></span>
+
+    <span class="gold-particle large"
+          style="left:54%;animation-duration:21s;animation-delay:-15s;"></span>
+
+    <span class="gold-particle small"
+          style="left:61%;animation-duration:16s;animation-delay:-7s;"></span>
+
+    <span class="gold-particle medium"
+          style="left:68%;animation-duration:19s;animation-delay:-11s;"></span>
+
+    <span class="gold-particle small"
+          style="left:75%;animation-duration:13s;animation-delay:-5s;"></span>
+
+    <span class="gold-particle large"
+          style="left:82%;animation-duration:22s;animation-delay:-17s;"></span>
+
+    <span class="gold-particle small"
+          style="left:89%;animation-duration:15s;animation-delay:-9s;"></span>
+
+    <span class="gold-particle medium"
+          style="left:96%;animation-duration:18s;animation-delay:-13s;"></span>
+
+</div>
+
+
+<div class="gold-light gold-light-one"></div>
+
+<div class="gold-light gold-light-two"></div>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar" id="navbar">
+
+    <a href="#home" class="logo-area">
+
+        <div class="logo-circle">
+            SJ
+        </div>
+
+        <div class="logo-text">
+
+            <h3>
+                SJ WORKS
+            </h3>
+
+            <span>
+                GOLD & SILVER MANUFACTURER
+            </span>
+
+        </div>
+
+    </a>
+
+
+    <nav class="nav-links" id="navLinks">
+
+        <a href="#home">Home</a>
+
+        <a href="#about">About</a>
+
+        <a href="#services">Services</a>
+
+        <a href="#gallery">Gallery</a>
+
+    </nav>
+
+
+    <div class="menu" onclick="toggleMenu()">
+        ☰
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            NEW BEGINNING
+        </div>
+
+        <h1 class="gold-text">
+
+            SOUMYA
+            <br>
+            JEWELLERY
+            <br>
+            WORKS
+
+        </h1>
+
+        <h2>
+            SJ WORKS
+        </h2>
+
+        <p class="hero-description">
+
+            Crafting timeless jewellery through precision,
+            experience and dedication.
+
+            <br><br>
+
+            <strong>
+                Gold & Silver Manufacturer
+            </strong>
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#gallery"
+                class="btn btn-gold"
+            >
+                Explore Our Work
+            </a>
+
+            <a
+                href="#contact"
+                class="btn btn-outline"
+            >
+                Get In Touch
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-media">
+
+        <div class="hero-photo" id="heroPhoto">
+
+            <img
+                src="images/hero.jpg"
+                alt="SJ Works jewellery"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section class="about" id="about">
+
+    <div class="section-heading reveal">
+
+        <div class="eyebrow">
+            Our Story
+        </div>
+
+        <h2>
+            A New Beginning
+        </h2>
+
+        <p>
+            Welcome to Soumya Jewellery Works —
+            where craftsmanship meets trust.
+        </p>
+
+    </div>
+
+
+    <div class="about-grid">
+
+        <div class="about-image reveal">
+
+            <img
+                src="images/about.jpg"
+                alt="SJ Works workshop"
+            >
+
+        </div>
+
+
+        <div class="about-text reveal">
+
+            <h3>
+                Crafting Gold.
+                <br>
+                Creating Trust.
+            </h3>
+
+            <div class="gold-line"></div>
+
+            <p>
+
+                Soumya Jewellery Works (SJ Works)
+                is a Gold & Silver manufacturing
+                establishment dedicated to creating
+                beautiful and finely crafted jewellery.
+
+            </p>
+
+            <p>
+
+                With attention to detail, skilled
+                workmanship and a passion for jewellery,
+                we aim to bring every design to life
+                with precision and elegance.
+
+            </p>
+
+            <p>
+
+                From traditional craftsmanship to
+                contemporary designs, every piece
+                represents our commitment to quality.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+
+<section class="services" id="services">
+
+    <div class="section-heading reveal">
+
+        <div class="eyebrow">
+            What We Do
+        </div>
+
+        <h2>
+            Our Expertise
+        </h2>
+
+        <p>
+            Professional gold and silver jewellery
+            manufacturing with attention to every detail.
+        </p>
+
+    </div>
+
+
+    <div class="service-grid">
+
+        <div class="service-card">
+            <div class="service-number">01</div>
+            <h3>Gold Jewellery</h3>
+            <p>
+                Carefully crafted gold jewellery
+                manufactured with precision and
+                attention to finishing.
+            </p>
+        </div>
+
+
+        <div class="service-card">
+            <div class="service-number">02</div>
+            <h3>Silver Jewellery</h3>
+            <p>
+                Quality silver jewellery manufacturing
+                combining traditional craftsmanship
+                with modern designs.
+            </p>
+        </div>
+
+
+        <div class="service-card">
+            <div class="service-number">03</div>
+            <h3>Custom Manufacturing</h3>
+            <p>
+                Custom jewellery manufacturing based
+                on your designs, requirements and
+                specifications.
+            </p>
+        </div>
+
+
+        <div class="service-card">
+            <div class="service-number">04</div>
+            <h3>Fine Finishing</h3>
+            <p>
+                Detailed finishing and quality checks
+                to ensure every jewellery piece meets
+                high standards.
+            </p>
+        </div>
+
+
+        <div class="service-card">
+            <div class="service-number">05</div>
+            <h3>Traditional Craft</h3>
+            <p>
+                Preserving the beauty of traditional
+                jewellery craftsmanship while embracing
+                modern requirements.
+            </p>
+        </div>
+
+
+        <div class="service-card">
+            <div class="service-number">06</div>
+            <h3>Jewellery Solutions</h3>
+            <p>
+                Reliable manufacturing solutions for
+                jewellery businesses, designers and
+                individual requirements.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     GALLERY
+===================================================== -->
+
+<section class="gallery" id="gallery">
+
+    <div class="section-heading reveal">
+
+        <div class="eyebrow">
+            Our Work
+        </div>
+
+        <h2>
+            Jewellery Gallery
+        </h2>
+
+        <p>
+            A glimpse into our craftsmanship and
+            jewellery creations.
+        </p>
+
+    </div>
+
+
+    <div class="gallery-grid">
+
+        <div class="gallery-item">
+
+            <img
+                src="images/gallery-01.jpg"
+                alt="SJ Works jewellery 01"
+            >
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img
+                src="images/gallery-02.jpg"
+                alt="SJ Works jewellery 02"
+            >
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img
+                src="images/gallery-03.jpg"
+                alt="SJ Works jewellery 03"
+            >
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img
+                src="images/gallery-04.jpg"
+                alt="SJ Works jewellery 04"
+            >
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img
+                src="images/gallery-05.jpg"
+                alt="SJ Works jewellery 05"
+            >
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img
+                src="images/gallery-06.jpg"
+                alt="SJ Works jewellery 06"
+            >
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img
+                src="images/gallery-07.jpg"
+                alt="SJ Works jewellery 07"
+            >
+
+        </div>
+
+        <div class="gallery-item">
+
+            <img
+                src="images/gallery-08.jpg"
+                alt="SJ Works jewellery 08"
+            >
+
+        </div>
+
+        <div class="gallery-item">
+
+            <img
+                src="images/gallery-09.jpg"
+                alt="SJ Works jewellery 09"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROCESS
+===================================================== -->
+
+<section class="process">
+
+    <div class="section-heading reveal">
+
+        <div class="eyebrow">
+            Our Process
+        </div>
+
+        <h2>
+            From Idea To Creation
+        </h2>
+
+    </div>
+
+
+    <div class="process-grid" id="processGrid">
+
+        <div class="process-card">
+
+            <div class="process-icon">
+                01
+            </div>
+
+            <h3>
+                Design
+            </h3>
+
+            <p>
+                Understanding the design,
+                concept and requirements.
+            </p>
+
+        </div>
+
+
+        <div class="process-card">
+
+            <div class="process-icon">
+                02
+            </div>
+
+            <h3>
+                Craft
+            </h3>
+
+            <p>
+                Skilled craftsmanship transforms
+                the concept into jewellery.
+            </p>
+
+        </div>
+
+
+        <div class="process-card">
+
+            <div class="process-icon">
+                03
+            </div>
+
+            <h3>
+                Finish
+            </h3>
+
+            <p>
+                Detailed finishing creates the
+                final look and elegance.
+            </p>
+
+        </div>
+
+
+        <div class="process-card">
+
+            <div class="process-icon">
+                04
+            </div>
+
+            <h3>
+                Quality
+            </h3>
+
+            <p>
+                Final inspection before the
+                jewellery reaches its destination.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WHY SJ WORKS
+===================================================== -->
+
+<section class="why">
+
+    <div class="section-heading reveal">
+
+        <div class="eyebrow">
+            Why SJ Works
+        </div>
+
+        <h2>
+            Made With Purpose
+        </h2>
+
+    </div>
+
+
+    <div class="why-grid">
+
+        <div class="why-card">
+
+            <div class="symbol">
+                ✦
+            </div>
+
+            <h3>
+                Precision
+            </h3>
+
+            <p>
+                Every detail matters.
+                Our craftsmanship focuses on
+                accuracy and fine finishing.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div class="symbol">
+                ♢
+            </div>
+
+            <h3>
+                Quality
+            </h3>
+
+            <p>
+                We believe beautiful jewellery
+                begins with quality workmanship.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div class="symbol">
+                ∞
+            </div>
+
+            <h3>
+                Trust
+            </h3>
+
+            <p>
+                Building long-lasting relationships
+                through reliable service and
+                professional craftsmanship.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     QUOTE
+===================================================== -->
+
+<section class="quote-section">
+
+    <div class="quote-mark">
+        “
+    </div>
+
+    <div class="quote reveal">
+
+        Every piece of jewellery carries
+        a story — we help bring that story
+        to life.
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section class="contact" id="contact">
+
+    <div class="section-heading reveal">
+
+        <div class="eyebrow">
+            Get In Touch
+        </div>
+
+        <h2>
+            Let's Create Something Beautiful
+        </h2>
+
+    </div>
+
+
+    <div class="contact-grid">
+
+        <div class="contact-info reveal">
+
+            <h2>
+                SJ WORKS
+            </h2>
+
+            <div class="gold-line"></div>
+
+            <p>
+                For jewellery manufacturing requirements,
+                enquiries and collaborations, feel free to
+                get in touch with us.
+            </p>
+
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    <span>◉</span>
+                </div>
+
+                <div>
+
+                    <h4>
+                        Location
+                    </h4>
+
+                    <p>
+                        Near Carmel School,<br>
+                        Kallipadam, Shoranur
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    <span>✉</span>
+                </div>
+
+                <div>
+
+                    <h4>
+                        Enquiries
+                    </h4>
+
+                    <p>
+                        8590323342<br>
+                        9446171059
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    <span>◌</span>
+                </div>
+
+                <div>
+
+                    <h4>
+                        Business
+                    </h4>
+
+                    <p>
+                        Gold & Silver Manufacturer
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    <span>◎</span>
+                </div>
+
+                <div>
+
+                    <h4>
+                        Instagram
+                    </h4>
+
+                    <p>
+                        <a class="instagram-link" href="https://www.instagram.com/sjwo_rks?stkn=b3hrZHd6YjRzaHA2" target="_blank" rel="noopener noreferrer">
+                            @sjwo_rks
+                        </a>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-top">
+
+        <div class="footer-brand">
+
+            <h2>
+                <span class="gold-text">
+                    SJ WORKS
+                </span>
+            </h2>
+
+            <p>
+                SOUMYA JEWELLERY WORKS
+            </p>
+
+            <p style="margin-top:15px;">
+                GOLD & SILVER MANUFACTURER
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#services">
+                Services
+            </a>
+
+            <a href="#gallery">
+                Gallery
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 Soumya Jewellery Works —
+        SJ Works.
+        All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+
+<script>
+
+/* =====================================================
+   PAGE LOADER
+===================================================== */
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        document
+            .getElementById("pageLoader")
+            .classList
+            .add("hide");
+
+    }, 900);
+
+});
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+function toggleMenu() {
+
+    document
+        .getElementById("navLinks")
+        .classList
+        .toggle("active");
+
+}
+
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            document
+                .getElementById("navLinks")
+                .classList
+                .remove("active");
+
+        });
+
+    });
+
+
+/* =====================================================
+   NAVBAR SCROLL
+===================================================== */
+
+const navbar =
+    document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 60) {
+
+        navbar.classList.add("scrolled");
+
+    } else {
+
+        navbar.classList.remove("scrolled");
+
+    }
+
+});
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+const revealObserver =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting) {
+
+                    entry.target
+                        .classList
+                        .add("active");
+
+                    revealObserver
+                        .unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:.12
+        }
+
+    );
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(element => {
+
+        revealObserver.observe(element);
+
+    });
+
+
+/* =====================================================
+   STAGGER SERVICE CARDS
+===================================================== */
+
+const serviceCards =
+    document.querySelectorAll(".service-card");
+
+const serviceObserver =
+    new IntersectionObserver(
+
+        entries => {
+
+            if(entries[0].isIntersecting) {
+
+                serviceCards.forEach((card,index) => {
+
+                    setTimeout(() => {
+
+                        card.classList.add("active");
+
+                    }, index * 120);
+
+                });
+
+                serviceObserver.disconnect();
+
+            }
+
+        },
+
+        {
+            threshold:.15
+        }
+
+    );
+
+
+if(serviceCards.length) {
+
+    serviceObserver.observe(
+        serviceCards[0]
+    );
+
+}
+
+
+/* =====================================================
+   GALLERY STAGGER
+===================================================== */
+
+const galleryItems =
+    document.querySelectorAll(".gallery-item");
+
+const galleryObserver =
+    new IntersectionObserver(
+
+        entries => {
+
+            if(entries[0].isIntersecting) {
+
+                galleryItems.forEach((item,index) => {
+
+                    setTimeout(() => {
+
+                        item.classList.add("active");
+
+                    }, index * 100);
+
+                });
+
+                galleryObserver.disconnect();
+
+            }
+
+        },
+
+        {
+            threshold:.12
+        }
+
+    );
+
+
+if(galleryItems.length) {
+
+    galleryObserver.observe(
+        galleryItems[0]
+    );
+
+}
+
+
+/* =====================================================
+   WHY CARDS STAGGER
+===================================================== */
+
+const whyCards =
+    document.querySelectorAll(".why-card");
+
+const whyObserver =
+    new IntersectionObserver(
+
+        entries => {
+
+            if(entries[0].isIntersecting) {
+
+                whyCards.forEach((card,index) => {
+
+                    setTimeout(() => {
+
+                        card.classList.add("active");
+
+                    }, index * 150);
+
+                });
+
+                whyObserver.disconnect();
+
+            }
+
+        },
+
+        {
+            threshold:.2
+        }
+
+    );
+
+
+if(whyCards.length) {
+
+    whyObserver.observe(
+        whyCards[0]
+    );
+
+}
+
+
+/* =====================================================
+   PROCESS ANIMATION
+===================================================== */
+
+const processGrid =
+    document.getElementById("processGrid");
+
+const processCards =
+    document.querySelectorAll(".process-card");
+
+const processObserver =
+    new IntersectionObserver(
+
+        entries => {
+
+            if(entries[0].isIntersecting) {
+
+                processGrid
+                    .classList
+                    .add("active-line");
+
+                processCards.forEach((card,index) => {
+
+                    setTimeout(() => {
+
+                        card.classList.add("active");
+
+                    }, index * 180);
+
+                });
+
+                processObserver.disconnect();
+
+            }
+
+        },
+
+        {
+            threshold:.2
+        }
+
+    );
+
+
+if(processGrid) {
+
+    processObserver.observe(processGrid);
+
+}
+
+
+/* =====================================================
+   HERO PARALLAX
+===================================================== */
+
+const heroPhoto =
+    document.getElementById("heroPhoto");
+
+window.addEventListener("scroll", () => {
+
+    if(window.innerWidth > 900) {
+
+        const scroll =
+            window.scrollY;
+
+        if(scroll < window.innerHeight) {
+
+            heroPhoto.style.transform =
+                `translateY(${scroll * 0.08}px)`;
+
+        }
+
+    }
+
+});
+
+
+/* =====================================================
+   CURSOR GOLD GLOW
+===================================================== */
+
+const cursorGlow =
+    document.getElementById("cursorGlow");
+
+if(window.innerWidth > 900) {
+
+    window.addEventListener(
+        "mousemove",
+        event => {
+
+            cursorGlow.style.left =
+                event.clientX + "px";
+
+            cursorGlow.style.top =
+                event.clientY + "px";
+
+            cursorGlow.style.opacity = "1";
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   CONTACT FORM
+===================================================== */
+
+const contactForm =
+    document.getElementById("contactForm");
+
+</script>
+
+</body>
+</html>
